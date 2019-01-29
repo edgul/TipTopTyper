@@ -37,7 +37,9 @@ SOURCES += main.cpp\
     data/User.cpp \
     Globals.cpp \
     widgets/ScreenWidget.cpp \
-    GameOverWidget.cpp
+    GameOverWidget.cpp \
+    UserManager.cpp \
+    widgets/UserEditor.cpp
 
 HEADERS  += MainWindow.h \
     data/Sequence.h \
@@ -49,7 +51,9 @@ HEADERS  += MainWindow.h \
     data/User.h \
     Globals.h \
     widgets/ScreenWidget.h \
-    GameOverWidget.h
+    GameOverWidget.h \
+    UserManager.h \
+    widgets/UserEditor.h
 
 FORMS    += mainwindow.ui \
     widgets/gamewidget.ui \
@@ -57,7 +61,8 @@ FORMS    += mainwindow.ui \
     widgets/settingswidget.ui \
     widgets/sequencestack.ui \
     widgets/screenwidget.ui \
-    gameoverwidget.ui
+    gameoverwidget.ui \
+    widgets/UserEditor.ui
 
 DISTFILES += \
     README.txt

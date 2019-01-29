@@ -1,13 +1,7 @@
 #include "MenuWidget.h"
 #include "ui_menuwidget.h"
 
-#define DIFFICULTY_EASY         "Easy"
-#define DIFFICULTY_MEDIUM       "Medium"
-#define DIFFICULTY_DIFFICULT    "Difficult"
-
-#define WORD_TYPE_ALPHABETIC    "Alphabetic"
-#define WORD_TYPE_NUMERIC       "Numeric"
-#define WORD_TYPE_ALPHANUMERIC  "Alphanumeric"
+#include "UserEditor.h"
 
 MenuWidget::MenuWidget(QWidget *parent) :
     ScreenWidget(parent),
@@ -63,4 +57,15 @@ void MenuWidget::on_button_play_clicked()
 void MenuWidget::on_button_settings_clicked()
 {
     emit change_screen(SCREEN_SETTINGS);
+}
+
+void MenuWidget::on_button_save_user_settings_clicked()
+{
+    QString username = ui->lineedit_user->text();
+
+}
+
+void MenuWidget::on_button_edit_users_clicked()
+{
+    UserEditor::instance->show();
 }

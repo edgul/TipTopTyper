@@ -10,6 +10,8 @@
 #include "SettingsWidget.h"
 #include "GameOverWidget.h"
 
+#include "UserEditor.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -25,6 +27,7 @@ public:
 
 private:
     Ui::MainWindow * ui;
+
 
     GameWidget * game_widget;
     MenuWidget * menu_widget;

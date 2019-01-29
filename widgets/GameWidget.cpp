@@ -2,6 +2,7 @@
 #include "ui_gamewidget.h"
 
 #include "MenuWidget.h"
+#include "User.h"
 
 #define STACK_MAX (10)
 
