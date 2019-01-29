@@ -34,6 +34,8 @@ private slots:
 
     void game_timer_timeout();
 
+    void on_button_quit_clicked();
+
 private:
     Ui::GameWidget *ui;
 

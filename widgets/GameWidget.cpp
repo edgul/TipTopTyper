@@ -162,4 +162,7 @@ void GameWidget::game_timer_timeout()
     game_over(true);
 }
 
-
+void GameWidget::on_button_quit_clicked()
+{
+    game_over(false);
+}
