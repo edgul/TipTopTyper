@@ -39,6 +39,9 @@ public:
     static QString numeric_decreasing();
     static QString numeric_same();
 
+    static QString alphabetic();
+    static QString alphanumeric();
+
 };
 
 #endif // SEQUENCE_H

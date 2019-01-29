@@ -4,7 +4,10 @@ TipTopTyper README.txt
 
 Improvements:
 
-	Rename project
+    Randomize character sequence outputs
+
+    Rename project
+    Rename ui filenames
 
 Bugs:
 	?

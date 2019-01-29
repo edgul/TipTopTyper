@@ -19,7 +19,7 @@ QString Sequence::random_sequence(int list_enum, int length)
     QString char_list;
     if (list_enum == LIST_ALPHABETIC)
     {
-        char_list = alphabetic;
+        char_list = alphabetic();
     }
     else if (list_enum == LIST_NUMERIC)
     {
@@ -66,4 +66,29 @@ QString Sequence::numeric_random()
     }
 
     return result;
+}
+
+QString Sequence::numeric_increasing()
+{
+    return "123";
+}
+
+QString Sequence::numeric_decreasing()
+{
+    return "321";
+}
+
+QString Sequence::numeric_same()
+{
+    return "444";
+}
+
+QString Sequence::alphabetic()
+{
+    return "abc";
+}
+
+QString Sequence::alphanumeric()
+{
+    return "a1s2";
 }
