@@ -58,3 +58,6 @@ FORMS    += mainwindow.ui \
     widgets/sequencestack.ui \
     widgets/screenwidget.ui \
     gameoverwidget.ui
+
+DISTFILES += \
+    README.txt
