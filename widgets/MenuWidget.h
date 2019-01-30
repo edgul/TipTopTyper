@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+#include "UserEditor.h"
 #include "ScreenWidget.h"
 #include "User.h"
 
@@ -18,8 +19,12 @@ public:
     explicit MenuWidget(QWidget *parent = 0);
     ~MenuWidget();
 
+    void refresh();
+
     QString get_difficulty();
     QString get_word_type();
+
+    void update_ui_from_user(User *user);
 
 private slots:
     void on_button_play_clicked();
@@ -29,8 +34,15 @@ private slots:
 
     void on_button_edit_users_clicked();
 
+    void change_current_user(User * user);
+
+    void on_lineedit_user_returnPressed();
+
 private:
     Ui::MenuWidget *ui;
+
+    UserEditor user_editor;
+
 };
 
 #endif // MENUWIDGET_H

@@ -5,9 +5,13 @@
 #include <QString>
 #include <QFileInfo>
 
+UserManager * UserManager::instance = 0;
+
 UserManager::UserManager()
 {
     db_path = "/temp";
+
+    instance = this;
 
 }
 
@@ -17,6 +21,18 @@ void UserManager::set_path(QString full_path)
     {
         db_path = full_path;
     }
+}
+
+User * UserManager::user_by_name(QString username)
+{
+    User * user = 0;
+
+    if (users.contains(username))
+    {
+        user = users[username];
+    }
+
+    return user;
 }
 
 QList<User *> UserManager::get_users()

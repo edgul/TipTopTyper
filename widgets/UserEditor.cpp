@@ -3,8 +3,6 @@
 
 #include <QInputDialog>
 
-UserEditor * UserEditor::instance = 0;
-
 UserEditor::UserEditor(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::UserEditor)
@@ -15,9 +13,8 @@ UserEditor::UserEditor(QWidget *parent) :
 
     ui->lineedit_user_folder->setText("/home/ed/TipTopTyper/Users");
 
-    connect(&user_manager, SIGNAL(update_files()), this, SLOT(refresh_user_list()));
+    connect(UserManager::instance, SIGNAL(update_files()), this, SLOT(refresh_user_list()));
 
-    instance = this;
 }
 
 UserEditor::~UserEditor()
@@ -43,17 +40,17 @@ void UserEditor::on_button_ok_clicked()
 
     if (user != 0)
     {
-        emit user_selected(user);
+        emit update_current_user(user);
     }
 
-    hide();
+    close();
 }
 
 void UserEditor::refresh_user_list()
 {
     ui->list_widget_users->clear();
 
-    QList<User *> users = user_manager.get_users();
+    QList<User *> users = UserManager::instance->get_users();
 
     foreach (User * user, users)
     {
@@ -65,9 +62,9 @@ void UserEditor::on_button_load_users_clicked()
 {
     QString folder_name = ui->lineedit_user_folder->text();
 
-    user_manager.set_path(folder_name);
+    UserManager::instance->set_path(folder_name);
 
-    user_manager.load_users();
+    UserManager::instance->load_users();
 
     refresh_user_list();
 }
@@ -81,7 +78,7 @@ User * UserEditor::user_by_name(QString username)
 {
     if (username == "") return 0;
 
-    QList<User *> users = user_manager.get_users();
+    QList<User *> users = UserManager::instance->get_users();
 
     User * selected_user = 0;
     foreach (User * user, users)
@@ -114,7 +111,7 @@ void UserEditor::on_button_remove_user_clicked()
 {
     QString username = selected_username();
 
-    user_manager.remove_user(username);
+    UserManager::instance->remove_user(username);
 }
 
 void UserEditor::on_button_add_new_user_clicked()
@@ -125,6 +122,6 @@ void UserEditor::on_button_add_new_user_clicked()
 
     if (new_username != "")
     {
-        user_manager.add_new_user(new_username);
+        UserManager::instance->add_new_user(new_username);
     }
 }

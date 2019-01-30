@@ -12,8 +12,11 @@ class UserManager : public QObject
 public:
     UserManager();
 
+    static UserManager * instance;
+
     void set_path(QString full_path);
 
+    User * user_by_name(QString username);
     QList<User *> get_users();
     void load_users();
     void save_users();

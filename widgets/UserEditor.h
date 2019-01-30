@@ -19,10 +19,8 @@ public:
 
     void refresh();
 
-    static UserEditor * instance;
-
 signals:
-    void user_selected(User * username);
+    void update_current_user(User * username);
 
 private slots:
     void on_button_ok_clicked();
@@ -38,8 +36,6 @@ private slots:
 
 private:
     Ui::UserEditor * ui;
-
-    UserManager user_manager;
 
     User * user_by_name(QString username);
 
